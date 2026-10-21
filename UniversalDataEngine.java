@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-// FIXED: added "package parser;" (was default/unnamed package — couldn't
 // be imported by ui.Main otherwise) and rewrote type inference to be
 // two-pass (see comment further down) to fix a bug where a blank cell in
 // row 1 would permanently misclassify that column as TEXT.
@@ -63,7 +62,6 @@ public class UniversalDataEngine {
             return null; // empty file
         }
 
-        // FIX: two-pass type inference. Original code only ever looked at
         // ROW 1 of column i to decide that column's type — and since blank
         // cells get imputed to "N/A" before type inference ran, a blank in
         // row 1 permanently locked that column in as TEXT even if every
